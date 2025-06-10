@@ -1,0 +1,285 @@
+/* public/style.css (최종 수정본) */
+
+
+html, body {
+  height: 100%; /* html과 body가 화면 전체 높이를 차지하도록 설정 */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 100%; /* 컨테이너의 최소 높이를 화면 높이와 같게 설정 */
+  overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤바 자동 생성 */
+  /* ✨ position과 box-sizing을 추가하여 레이아웃 안정성 확보 */
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', 'Segoe UI', sans-serif;
+  background-color: #6fc82f;
+  text-align: center;
+  color: #333;
+}
+
+/* 메인 배너 이미지 */
+#mainImagePreview {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 2rem;
+  pointer-events: none;
+}
+
+/* 버튼 그룹 (메인 페이지) */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin: 0 auto 2rem;
+}
+
+/* --- ✨ 모든 버튼의 공통 스타일 (가장 중요) --- */
+.button {
+  display: inline-block;
+  width: 90%;
+  max-width: 320px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 9999px; /* 둥근 알약 모양 */
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  margin: 0.5rem auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- 각 버튼의 개별 색상 및 텍스트 스타일 지정 --- */
+.upload {
+  background: #ffe066;
+  color: #c78f00;
+  text-shadow: none;
+}
+
+.capture {
+  background: #5ec8f2;
+  color: #007a9b;
+  text-shadow: none;
+}
+
+.quiz,
+#nextQuizBtn { /* '다음 문제' 버튼도 이 스타일 적용 */
+  background: #b28cf2;
+  color: #543b7c;
+  text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.stop {
+  background: #ff6b6b;
+  color: #0b0101;
+}
+
+.secondary { /* '메인으로 돌아가기' 버튼도 이 스타일 적용 */
+  background-color: #b17326;
+  color: #f4e3a9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); 
+}
+
+
+/* --- 퀴즈 페이지 고유 스타일 --- */
+#optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem auto;
+}
+
+/* 퀴즈 옵션 버튼 */
+.quiz-option {
+  /* ✨ 공통 스타일을 상속받도록 .button 클래스와 함께 사용됨 */
+  /* 여기서는 색상만 덮어씀 */
+  background: #f8c8dc;
+  color: #a14e69;
+  text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.quiz-option.correct {
+  background: #8ce99a !important;
+  color: #fff !important;
+  text-shadow: none !important;
+  transform: scale(1.05);
+}
+
+.quiz-option.wrong {
+  background: #ff8787 !important;
+  color: #fff !important;
+  text-shadow: none !important;
+  opacity: 0.7;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+}
+
+#quizResult {
+  margin-top: 1.5rem;
+  font-size: 1.3em;
+  font-weight: bold;
+  min-height: 1.5em;
+}
+
+
+/* --- 나머지 기존 스타일 --- */
+/* .result-box, #cameraPreview, .icon-row, .icon, #quizImage, #switchCameraBtn { */
+  /* 이 부분은 변경 없음 */
+/* } */
+
+/* style.css 파일의 아무 곳에나 아래 코드를 추가 */
+
+/* --- 이미지 미리보기 스타일 --- */
+.image-preview-box {
+  margin: 1.5rem auto;
+  max-width: 400px;
+}
+
+#uploadedImagePreview {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px; /* 모서리를 둥글게 */
+  border: 4px solid #b17326; /* 흰색 테두리 추가 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 그림자 효과 */
+}
+
+/* public/style.css 파일 맨 아래에 추가 */
+
+/* 상세 정보 컨테이너 내부의 리스트 스타일 초기화 */
+#animalDetailedInfo ul {
+  list-style-type: none; /* 목록 앞의 점(불릿) 제거 */
+  padding-left: 0;       /* 왼쪽 기본 들여쓰기(패딩) 제거 */
+  text-align: left;      /* 텍스트를 왼쪽 정렬하여 깔끔하게 보이도록 */
+}
+
+/* 각 목록 항목(li)에 대한 스타일 (선택 사항) */
+#animalDetailedInfo li {
+  margin-bottom: 8px; /* 각 항목 사이에 약간의 수직 간격(8px)을 주어 가독성 향상 */
+}
+
+/* 상세 정보 내의 제목(h3) 스타일 조정 */
+#animalDetailedInfo h3 {
+    text-align: center; /* 제목은 중앙 정렬 유지 */
+    margin-top: 20px;   /* 위쪽 정보와 간격 */
+    margin-bottom: 10px;
+}
+
+
+/* 미리보기 후 '메인으로 돌아가기' 버튼 스타일 */
+#backToMainFromPreviewBtn {
+    margin-top: 1.5rem;
+}
+
+/* --- 동물 상세 정보 텍스트 스타일 (추천 2: 정보 카드) --- */
+
+/* 정보 컨테이너 자체에 반투명 배경과 패딩을 추가 */
+#animalInfoContainer {
+  background-color: rgba(0, 0, 0, 0.25); /* 반투명 검은색 배경 */
+  border-radius: 16px; /* 모서리를 둥글게 */
+  padding: 1rem 1.5rem; /* 안쪽 여백을 주어 답답하지 않게 */
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 카드 안의 텍스트는 부드러운 흰색으로 */
+#animalInfoContainer,
+#animalInfoContainer p,
+#animalInfoContainer li {
+  color: #f4e3a9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 카드 안의 제목은 밝은 노란색으로 강조 */
+#animalInfoContainer h3 {
+  color: #ffe066;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 상세 정보 보기/닫기 버튼은 카드 안에 있으므로 다시 디자인 */
+#toggleDetailedInfoBtn {
+  background-color: #f8f9fa;
+  color: #555;
+  text-shadow: none;
+  margin-top: 1rem; /* 위쪽 문단과 간격 */
+}
+
+
+
+/* --- 퀴즈 이미지 스타일 --- */
+#quizImage {
+  width: 100%; /* 컨테이너 너비에 꽉 채움 */
+  max-width: 400px; /* 이미지가 너무 커지는 것을 방지 */
+  height: 300px; /* 모든 이미지의 높이를 300px로 고정 */
+  object-fit: cover; /* 이미지 비율을 유지하면서, 지정된 크기에 맞게 잘라냄 */
+  border-radius: 16px; /* 모서리를 둥글게 */
+  margin: 1.5rem auto; /* 위아래 여백 및 자동 중앙 정렬 */
+  display: block; /* 블록 요소로 만들어 margin: auto 적용 */
+  border: 1px solid #000; /* 흰색 테두리 추가 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 그림자 효과 */
+}
+
+/* public/style.css 파일의 아무 곳에나 아래 코드를 추가하세요. */
+
+/* --- 하단 아이콘 스타일 --- */
+.icon-row {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: center; /* 아이콘들을 수평 중앙에 배치 */
+  align-items: center; /* 아이콘들을 수직 중앙에 정렬 (높이가 다를 경우 대비) */
+  gap: 2.5rem; /* 아이콘 사이의 간격 (2.5rem = 약 40px) */
+  margin-top: 2rem; /* 위쪽 콘텐츠와의 간격 */
+  padding-bottom: 1.5rem; /* 페이지 하단과의 여백 */
+}
+
+.icon {
+  width: 50px; /* 아이콘 너비 고정 */
+  height: 50px; /* 아이콘 높이 고정 */
+  transition: transform 0.2s ease; /* 부드러운 전환 효과 */
+}
+
+.icon:hover {
+  transform: scale(1.15); /* 마우스를 올리면 살짝 커지는 효과 */
+}
+
+/* public/style.css 파일 맨 아래에 추가하세요. */
+
+/* --- 퀴즈 페이지 전용 배경 및 텍스트 색상 --- */
+body.quiz-page-bg {
+  background-color: #6fc82f; /* 동물보감 간판과 유사한 따뜻한 갈색 */
+  color: #f4e3a9; /* 기본 텍스트 색상을 밝은 색으로 변경하여 가독성 확보 */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 텍스트에 그림자 추가 */
+}
+
+/* 퀴즈 페이지의 제목들도 밝게 만듭니다. */
+.quiz-page-bg h1,
+.quiz-page-bg h2 {
+  color: #fff;
+}
+
+
+/* public/style.css 파일 맨 아래에 추가 */
+
+/* 퀴즈 페이지의 '메인으로 돌아가기' 버튼만 스타일 변경 */
+.quiz-page-bg .secondary {
+  background-color: #f8f9fa; /* 밝은 흰색 계열 */
+  color: #333; /* 어두운 글씨 */
+  text-shadow: none; /* 밝은 배경에는 텍스트 그림자 제거 */
+}

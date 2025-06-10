@@ -1,0 +1,35 @@
+<!-- public/quiz.html 파일 전체를 아래 코드로 교체 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>동물 퀴즈쇼</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class = "quiz-page-bg"> 
+  <div class="container">
+    <h1>🐾 동물 퀴즈쇼! 🐾</h1>
+
+    <div id="quizSection">
+      <h2>이 동물은 무엇일까요?</h2>
+      <img id="quizImage" src="#" alt="퀴즈 이미지" style="display: none;" />
+      <div id="optionsContainer"></div>
+      
+      <!-- ✨ 수정: .button, .quiz 클래스 적용 -->
+      <button type="button" id="nextQuizBtn" class="button quiz">다음 문제</button>
+      
+      <div id="quizResult"></div>
+    </div>
+
+    <hr />
+
+    <div id="backToMainSection">
+      <!-- ✨ 수정: .button, .secondary 클래스 적용 -->
+      <button type="button" id="backToMainBtn" class="button secondary" onclick="location.href='index.html'">메인으로 돌아가기</button>
+    </div>
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>

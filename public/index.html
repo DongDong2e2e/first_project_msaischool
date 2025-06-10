@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>동물보감</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- 메인 배너 이미지 -->
+    <img id="mainImagePreview" src="images/main-banner.png" alt="main" />
+
+    <!-- 버튼 영역 -->
+<div class="button-group">
+  <input type="file" id="imageFile" name="image" accept="image/*" required hidden />
+  <button type="button" class="button upload" onclick="document.getElementById('imageFile').click()">이미지 업로드</button>
+
+  <button type="button" class="button capture" id="startCameraBtn">촬영하기</button>
+  <button type="button" class="button quiz" id="goToQuizBtn" onclick="location.href='quiz.html'">퀴즈 풀러가기</button>
+</div>    
+
+    <!-- 카메라 프리뷰 -->
+    <div id="cameraPreviewContainer" style="display: none;">
+      <video id="cameraPreview" autoplay playsinline></video>
+      <canvas id="captureCanvas" style="display: none;"></canvas>
+      <button type="button" id="captureBtn" class="button capture">사진 찍고 판별하기</button>
+      <button type="button" id="stopCameraBtn" class="button stop">카메라 끄기</button>
+    </div>
+
+     <!-- ✨ 수정: 이미지 미리보기 영역 추가 -->
+     <div id="imagePreviewBox" class="image-preview-box" style="display: none;">
+      <img id="uploadedImagePreview" src="#" alt="업로드된 이미지" />
+    </div>
+    
+    <!-- ✨ 수정: 이미지 업로드 후 미리보기 영역 추가 -->
+     <button type="button" id="backToMainFromPreviewBtn" class="button secondary" style="display: none;">메인으로 돌아가기</button>
+
+    <!-- 결과 표시 -->
+    <div id="predictionResult" class="result-box" style="display: none;"></div>
+
+    <!-- 동물 정보 -->
+    <div id="animalInfoContainer" style="display: none;">
+      <p id="animalSimpleDesc"></p>
+      <button type="button" id="toggleDetailedInfoBtn" class="secondary">상세 정보 보기</button>
+      <div id="animalDetailedInfo" style="display: none;"></div>
+    </div>
+
+    <!-- 하단 아이콘 -->
+    <div class="icon-row">
+    <img id = "uploadIcon" src="images/upload.png" alt="업로드" class="icon" />
+    <img id = "cameraIcon" src="images/camera.png" alt="카메라" class="icon" />
+    <img id = "quizIcon" src="images/quiz.png" alt="퀴즈" class="icon" />
+    </div>
+
+  </div>
+  <!-- browser-image-compression 라이브러리 로드 스크립트 -->
+  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
